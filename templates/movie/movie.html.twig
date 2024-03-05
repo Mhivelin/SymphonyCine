@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% block title %}film {{superMovie.title}}{% endblock %}
+
+{% block body %}
+    affichage du film
+
+{{ dump( superMovie )}}
+
+image : 
+
+<img src="https://www.themoviedb.org/t/p/w220_and_h330_face/{{ superMovie.poster_path }}" alt="">
+
+
+{% endblock %}
+
+
+
+

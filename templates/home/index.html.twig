@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    <h1>Liste des films</h1>
+
+    {% if films|length == 0 %}
+        <p>Aucun film</p>
+    {% else %}
+        
+
+    <div id="carouselExampleCaptions" class="carousel slide">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+                      <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{ films[0].poster_path }}" alt="">
+
+      <div class="carousel-caption d-none d-md-block">
+        <h5>{{ films[0].title }}</h5>
+        <p>{{ films[0].overview }}</p>
+      </div>
+    </div>
+    {% for film in films[1:] %}
+    <div class="carousel-item">
+    <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{ film.poster_path }}" alt="">
+
+      <div class="carousel-caption d-none d-md-block">
+        <h5>{{ film.title }}</h5>
+        <p>{{ film.overview }}</p>
+      </div>
+
+    
+
+
+    
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span> 
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+{% endfor %}
+
+
+{% endif %}
+
+
+
+
+
+
+  </div>
+
+
+
+    
+        
+
+{% endblock %}
+
+
+
